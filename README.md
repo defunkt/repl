@@ -58,8 +58,8 @@ Or even:
       add
 
 
-If you have [rlwrap(1)][0] installed you'll get the full benefits of
-readline: history, reverse searches, etc.
+If you have [rlwrap(1)][0] installed you'll automatically get the full
+benefits of readline: history, reverse searches, etc.
 
 
 Install
