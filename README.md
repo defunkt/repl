@@ -90,6 +90,33 @@ sure it's in your `$PATH`.)
     $ gem install repl -s http://gemcutter.org/
 
 
+Completion
+----------
+
+Because `rlwrap` supports completion, `repl` does too. Any file in
+`~/.repl` matching the name of the command you start `repl` with will
+be used for completion.
+
+For instance, a file named `~/.repl/redis-cli` containing "get set
+info" will cause "get", "set", and "info" to be tab completeable at
+the prompt.
+
+The directory searched for completion files can be configured using
+the `REPL_COMPLETION_DIR` environment variable.
+
+
+Configuration
+-------------
+
+The following environment variables affect `repl`'s behavior:
+
+`REPL_PROMPT`:
+    the prompt to display before each line of input. defaults to >>
+
+`REPL_COMPLETION_DIR`:
+    directory in which completion files are kept
+
+
 Contributing
 ------------
 
