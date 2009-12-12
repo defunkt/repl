@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-# repl(1) -- because sometimes you just need a repl
+# repl(1) -- sometimes you need a repl
 #
 # repl is an interactive program which tenderly wraps another,
 # non-interactive program.
@@ -16,7 +16,7 @@
 # If you have rlwrap(1) installed you'll get the full benefits of
 # readline: history, reverse searches, etc.
 
-if ARGV.empty? || ARGV.any? { |arg| %w( -h --help -help help ).include?(arg) }
+def show_help
   puts <<-help
 Usage: repl [options] command ...
 
@@ -28,6 +28,10 @@ Bug reports, suggestions, updates:
 http://http://github.com/defunkt/repl/issues
 help
   exit
+end
+
+if ARGV.empty? || ARGV.any? { |arg| %w( -h --help -help help ).include?(arg) }
+  show_help
 end
 
 completion_dir = ENV['REPL_COMPLETION_DIR'] || "~/.repl"
@@ -50,6 +54,7 @@ if ARGV[0] == '--debug'
 end
 
 command = ARGV.join(' ')
+show_help if command.empty?
 
 if debug
   print 'rlwrap ' if ENV['__REPL_WRAPPED']
