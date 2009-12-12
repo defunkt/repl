@@ -1,5 +1,5 @@
-repl(1) -- sometimes you just need a repl
-=========================================
+repl(1) -- sometimes you need a repl
+====================================
 
 `repl` is an interactive program which tenderly wraps another,
 non-interactive program.
@@ -16,6 +16,7 @@ For example:
     uptime_in_seconds:182991
     uptime_in_days:2
     .. etc ..
+
 
 Or:
 
@@ -36,6 +37,7 @@ Or:
     jdg-yajl-ruby (0.5.12)
     oortle-yajl-ruby (0.5.8)
     yajl-ruby (0.6.7)
+
 
 Or even:
 
@@ -60,6 +62,11 @@ Or even:
 
 If you have [rlwrap(1)][0] installed you'll automatically get the full
 benefits of readline: history, reverse searches, etc.
+
+`repl` is meant to wrap programs which accept command line arguments
+and print to the standard output. It keeps no state between executed
+lines and, as such, cannot be used to replace `irb` or the Python
+REPL (for example).
 
 
 Install
