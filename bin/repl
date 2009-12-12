@@ -30,7 +30,7 @@ if debug
 end
 
 loop do
-  print '>> '
+  print ENV['REPL_PROMPT'] || '>> '
 
   begin
     line = $stdin.gets.chomp
