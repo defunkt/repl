@@ -21,7 +21,10 @@ if !ENV['__REPL_WRAPPED'] && system("which rlwrap > /dev/null")
   exec "rlwrap #$0 #{ARGV.join(' ')}"
 end
 
-debug   = ARGV.delete('--debug')
+if ARGV[0] == '--debug'
+  debug = ARGV.delete('--debug')
+end
+
 command = ARGV.join(' ')
 
 if debug
