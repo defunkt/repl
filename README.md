@@ -99,7 +99,7 @@ be used for completion.
 
 For instance, a file named `~/.repl/redis-cli` containing "get set
 info" will cause "get", "set", and "info" to be tab completeable at
-the prompt.
+the `repl redis-cli` prompt.
 
 The directory searched for completion files can be configured using
 the `REPL_COMPLETION_DIR` environment variable.

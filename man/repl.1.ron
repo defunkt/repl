@@ -77,6 +77,19 @@ Using `repl` with `git`:
     Did you mean this?
       add
 
+## COMPLETION
+
+Because `rlwrap` supports completion, `repl` does too. Any file in
+`~/.repl` matching the name of the command you start `repl` with will
+be used for completion.
+
+For instance, a file named `~/.repl/redis-cli` containing "get set
+info" will cause "get", "set", and "info" to be tab completeable at
+the `repl redis-cli` prompt.
+
+The directory searched for completion files can be configured using
+the `REPL_COMPLETION_DIR` environment variable.
+
 ## ENVIRONMENT
 
 ### REPL_PROMPT

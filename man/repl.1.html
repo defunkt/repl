@@ -141,6 +141,19 @@ Did you mean this?
   add
 </code></pre>
 
+<h2>COMPLETION</h2>
+
+<p>Because <code>rlwrap</code> supports completion, <code>repl</code> does too. Any file in
+<code>~/.repl</code> matching the name of the command you start <code>repl</code> with will
+be used for completion.</p>
+
+<p>For instance, a file named <code>~/.repl/redis-cli</code> containing "get set
+info" will cause "get", "set", and "info" to be tab completeable at
+the prompt.</p>
+
+<p>The directory searched for completion files can be configured using
+the <code>REPL_COMPLETION_DIR</code> environment variable.</p>
+
 <h2>ENVIRONMENT</h2>
 
 <h3>REPL_PROMPT</h3>
