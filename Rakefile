@@ -46,3 +46,14 @@ task :publish => [ :gemspec, :build ] do
   git "clean -fd"
   exec "rake pages"
 end
+
+desc "Publish to GitHub Pages"
+task :pages => [ :build_man ] do
+  cp "man/repl.1.html", "html"
+  git "checkout gh-pages"
+  mv "html", "index.html"
+  git "commit -a -m 'update docs'"
+  git "push origin gh-pages"
+  git "checkout master"
+  puts :done
+end
