@@ -1,0 +1,121 @@
+.\" generated with Ron/v0.3
+.\" http://github.com/rtomayko/ron/
+.
+.TH "REPL" "1" "December 2009" "DEFUNKT" ""
+.
+.SH "NAME"
+\fBrepl\fR \-\- sometimes you need a repl
+.
+.SH "SYNOPSIS"
+\fBrepl\fR \fIcommand\fR <...>
+.
+.SH "DESCRIPTION"
+\fBrepl\fR wraps a non\-interactive \fBcommand\fR in an interactive
+read\-eval\-print\-loop prompt. Each line you type into the prompt is
+executed as arguments to \fBcommand\fR. Anything written to standard
+output or standard error by the \fBcommand\fR is displayed.
+.
+.P
+If you have \fBrlwrap(1)\fR installed you'll automatically get the full
+benefits of readline: history, reverse searches, etc.
+.
+.P
+\fBrepl\fR is meant to wrap programs which accept command line arguments
+and print to the standard output. It keeps no state between executed
+lines and, as such, cannot be used to replace \fBirb\fR or the Python
+REPL (for example).
+.
+.SH "EXAMPLES"
+Using \fBrepl\fR with \fBredis\-cli\fR:
+.
+.IP "" 4
+.
+.nf
+
+$ repl redis\-cli
+>> set name chris
+OK
+>> get name
+chris
+>> info
+redis_version:1.000
+uptime_in_seconds:182991
+uptime_in_days:2
+.. etc .. 
+.
+.fi
+.
+.IP "" 0
+.
+.P
+Using \fBrepl\fR with Ruby's \fBgem\fR:
+.
+.IP "" 4
+.
+.nf
+
+$ repl gem
+>> \-\-version
+1.3.5
+>> search yajl 
+*** LOCAL GEMS ***
+
+yajl\-ruby (0.6.7)
+>> search yajl \-r
+
+*** REMOTE GEMS ***
+
+brianmario\-yajl\-ruby (0.6.3)
+filipegiusti\-yajl\-ruby (0.6.4)
+jdg\-yajl\-ruby (0.5.12)
+oortle\-yajl\-ruby (0.5.8)
+yajl\-ruby (0.6.7)
+.
+.fi
+.
+.IP "" 0
+.
+.P
+Using \fBrepl\fR with \fBgit\fR:
+.
+.IP "" 4
+.
+.nf
+
+$ repl git
+>> branch
+  gh\-pages
+* master
+>> tag
+rm
+v0.1.0
+v0.1.1
+v0.1.2
+v0.1.3
+>> tag \-d rm
+Deleted tag 'rm'
+>> pwd
+git: 'pwd' is not a git\-command. See 'git \-\-help'. 
+Did you mean this?
+  add
+.
+.fi
+.
+.IP "" 0
+.
+.SH "ENVIRONMENT"
+.
+.SS "REPL_PROMPT"
+the prompt to display before each line of input. defaults to >>
+.
+.SS "REPL_COMPLETION_DIR"
+directory in which completion files are kept
+.
+.SH "BUGS"
+\fIhttp://github.com/defunkt/repl/issues\fR
+.
+.SH "AUTHOR"
+Chris Wanstrath :: chris@ozmm.org :: @defunkt
+.
+.SH "SEE ALSO"
+rlwrap(1), readline(3), \fIhttp://github.com\fR, \fIhttp://github.com/defunkt/repl\fR
