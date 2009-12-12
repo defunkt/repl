@@ -66,7 +66,7 @@
 <p><code>repl</code> -- sometimes you need a repl</p>
 <h2>SYNOPSIS</h2>
 
-<p><code>repl</code> <var>command</var> &lt;...&gt;</p>
+<p><code>repl</code> <var>[repl-options]</var> <var>command</var> &lt;...&gt;</p>
 
 <h2>DESCRIPTION</h2>
 
@@ -82,6 +82,20 @@ benefits of readline: history, reverse searches, etc.</p>
 and print to the standard output. It keeps no state between executed
 lines and, as such, cannot be used to replace <code>irb</code> or the Python
 REPL (for example).</p>
+
+<h2>OPTIONS</h2>
+
+<dl>
+<dt>
+<code>-h</code>, <code>--help</code>
+</dt>
+<dd><p>Displays usage information.</p></dd>
+<dt class="flush"><code>--debug</code></dt>
+<dd><p>Displays debug information while running.</p></dd>
+<dt class="flush"><code>--man</code></dt>
+<dd><p>Displays this man page.</p></dd>
+</dl>
+
 
 <h2>EXAMPLES</h2>
 

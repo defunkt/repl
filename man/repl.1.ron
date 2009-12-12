@@ -3,7 +3,7 @@ repl(1) - sometimes you need a repl
 
 ## SYNOPSIS
 
-`repl` <command> <...>
+`repl` <[repl-options]> <command> <...>
 
 ## DESCRIPTION
 
@@ -76,6 +76,17 @@ Using `repl` with `git`:
 
     Did you mean this?
       add
+
+## OPTIONS
+
+  * `-h`, `--help`:
+    Displays usage information.
+
+  * `--debug`:
+    Displays debug information while running.
+
+  * `--man`:
+    Displays this man page.
 
 ## COMPLETION
 
