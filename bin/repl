@@ -1,0 +1,43 @@
+#!/usr/bin/env ruby
+
+# repl(1) -- because sometimes you just need a repl
+#
+# repl is an interactive program which tenderly wraps another,
+# non-interactive program.
+#
+# For example:
+#
+#   $ repl redis-cli
+#   >> set name chris
+#   OK
+#   >> get name
+#   chris
+#
+# If you have rlwrap(1) installed you'll get the full benefits of
+# readline: history, reverse searches, etc.
+
+if !ENV['__REPL_WRAPPED'] && system("which rlwrap > /dev/null")
+  ENV['__REPL_WRAPPED'] = '0'
+  exec "rlwrap #$0 #{ARGV.join(' ')}"
+end
+
+debug   = ARGV.delete('--debug')
+command = ARGV.join(' ')
+
+if debug
+  print 'rlwrap ' if ENV['__REPL_WRAPPED']
+  puts command.inspect
+end
+
+loop do
+  print '>> '
+
+  begin
+    line = $stdin.gets.chomp
+  rescue NoMethodError, Interrupt
+    exit
+  end
+
+  puts "$ #{command} #{line}" if debug
+  system "#{command} #{line}"
+end
