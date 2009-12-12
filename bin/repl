@@ -16,11 +16,27 @@
 # If you have rlwrap(1) installed you'll get the full benefits of
 # readline: history, reverse searches, etc.
 
+if ARGV.empty? || ARGV.any? { |arg| %w( -h --help -help help ).include?(arg) }
+  puts <<-help
+Usage: repl [options] command ...
+
+Options:
+  --help    Display this message
+  --debug   Display each command executed
+
+Bug reports, suggestions, updates:
+http://http://github.com/defunkt/repl/issues
+help
+  exit
+end
+
 completion_dir = ENV['REPL_COMPLETION_DIR'] || "~/.repl"
 if File.exists?(cdir = File.expand_path(completion_dir))
   script = ARGV.detect { |a| a !~ /^-/ }
-  cfile = Dir[cdir + '/' + script].first
-  cfile = nil if cfile && !File.exists?(cfile)
+  if script
+    cfile = Dir[cdir + '/' + script].first
+    cfile = nil if cfile && !File.exists?(cfile)
+  end
 end
 
 if !ENV['__REPL_WRAPPED'] && system("which rlwrap > /dev/null")
