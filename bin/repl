@@ -16,9 +16,17 @@
 # If you have rlwrap(1) installed you'll get the full benefits of
 # readline: history, reverse searches, etc.
 
+completion_dir = ENV['REPL_COMPLETION_DIR'] || "~/.repl"
+if File.exists?(cdir = File.expand_path(completion_dir))
+  script = ARGV.detect { |a| a !~ /^-/ }
+  cfile = Dir[cdir + '/' + script].first
+  cfile = nil if cfile && !File.exists?(cfile)
+end
+
 if !ENV['__REPL_WRAPPED'] && system("which rlwrap > /dev/null")
   ENV['__REPL_WRAPPED'] = '0'
-  exec "rlwrap #$0 #{ARGV.join(' ')}"
+  rlargs = "-f #{cfile}" if cfile
+  exec "rlwrap #{rlargs} #$0 #{ARGV.join(' ')}"
 end
 
 if ARGV[0] == '--debug'
@@ -29,6 +37,7 @@ command = ARGV.join(' ')
 
 if debug
   print 'rlwrap ' if ENV['__REPL_WRAPPED']
+  print "-f #{cfile} " if cfile
   puts command.inspect
 end
 
