@@ -23,6 +23,7 @@ Usage: repl [options] command ...
 Options:
   --help    Display this message
   --debug   Display each command executed
+  --man     Display the man page
 
 Bug reports, suggestions, updates:
 http://http://github.com/defunkt/repl/issues
@@ -32,6 +33,11 @@ end
 
 if ARGV.empty? || ARGV.any? { |arg| %w( -h --help -help help ).include?(arg) }
   show_help
+end
+
+if ARGV.include? '--man'
+  dir = File.dirname(__FILE__)
+  exec "man #{dir}/../man/repl.1"
 end
 
 completion_dir = ENV['REPL_COMPLETION_DIR'] || "~/.repl"
