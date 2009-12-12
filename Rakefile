@@ -16,3 +16,13 @@ rescue LoadError
   puts "Jeweler not available."
   puts "Install it with: gem install jeweler"
 end
+
+desc "Build manual"
+task :build_man do
+  sh "ron -br5 --organization=DEFUNKT man/*.ron"
+end
+
+desc "Build and show manual"
+task :man => :build_man do
+  exec "man man/repl.1"
+end
