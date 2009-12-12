@@ -135,9 +135,9 @@ Once you've made your great commits:
 Meta
 ----
 
-* Code: `git clone git://gitrepl.com/defunkt/repl.git`
-* Home: <http://gitrepl.com/defunkt/repl>
-* Bugs: <http://gitrepl.com/defunkt/repl/issues>
+* Code: `git clone git://github.com/defunkt/repl.git`
+* Home: <http://github.com/defunkt/repl>
+* Bugs: <http://github.com/defunkt/repl/issues>
 * Gems: <http://gemcutter.org/gems/repl>
 
 
