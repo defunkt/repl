@@ -6,7 +6,7 @@ non-interactive program.
 
 For example:
 
-    $ repl redis-cli
+    $ repl redis-cli -p 6665
     >> set name chris
     OK
     >> get name
