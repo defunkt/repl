@@ -104,6 +104,9 @@ the `repl redis-cli` prompt.
 The directory searched for completion files can be configured using
 the `REPL_COMPLETION_DIR` environment variable.
 
+See the [repl-completion](http://github.com/defunkt/repl-completion)
+project for a few common, pre-rolled completion files.
+
 
 Configuration
 -------------
