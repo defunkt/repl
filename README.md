@@ -87,7 +87,7 @@ sure it's in your `$PATH`.)
 
 `repl` can also be installed as a RubyGem:
 
-    $ gem install repl -s http://gemcutter.org/
+    $ gem install repl
 
 
 Completion
