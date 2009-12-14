@@ -79,4 +79,5 @@ loop do
 
   puts "$ #{command} #{line}" if debug
   system "#{command} #{line}"
+  warn "Use Ctrl-D (i.e. EOF) to exit" if line =~ /^(exit|quit)$/
 end
