@@ -59,6 +59,22 @@ Or even:
     Did you mean this?
       add
 
+Or *EVEN*:
+Use %s to tell repl where to put the input
+
+    $ repl heroku %s --app domainy
+    >> info
+    === domainy
+    Web URL:        http://domainy.heroku.com/
+    Git Repo:       git@heroku.com:domainy.git
+    Dynos:          1
+    Workers:        0
+    Repo size:      288k
+    Slug size:      4k
+    Data size:      0K in 0 table
+    Addons:         Piggyback SSL
+    Owner:          b****@*******.com
+
 
 If you have [rlwrap(1)][0] installed you'll automatically get the full
 benefits of readline: history, reverse searches, etc.
