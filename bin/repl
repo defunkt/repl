@@ -79,6 +79,6 @@ loop do
 
   run = "#{command} %s" % [ line, nil ]
   puts "$ #{run}" if debug
-  system "#{run}"
+  system run
   warn "Use Ctrl-D (i.e. EOF) to exit" if line =~ /^(exit|quit)$/
 end
