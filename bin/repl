@@ -60,7 +60,6 @@ if ARGV[0] == '--debug'
 end
 
 command = ARGV.join(' ')
-run     = Proc.new {|line| (command + " %s") % [line, nil] }
 show_help if command.empty?
 
 if debug
@@ -78,7 +77,8 @@ loop do
     exit
   end
 
-  puts "$ #{run[line]}" if debug
-  system "#{run[line]}"
+  run = "#{command} %s" % [ line, nil ]
+  puts "$ #{run}" if debug
+  system "#{run}"
   warn "Use Ctrl-D (i.e. EOF) to exit" if line =~ /^(exit|quit)$/
 end
