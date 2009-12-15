@@ -59,8 +59,7 @@ Or even:
     Did you mean this?
       add
 
-Or *EVEN*:
-Use %s to tell repl where to put the input
+You can also use `%s` to tell repl where to stick the input:
 
     $ repl heroku %s --app domainy
     >> info
