@@ -168,6 +168,20 @@ the <code>repl redis-cli</code> prompt.</p>
 <p>The directory searched for completion files can be configured using
 the <code>REPL_COMPLETION_DIR</code> environment variable.</p>
 
+<h2>COMMAND HISTORY</h2>
+
+<p>Because <code>rlwrap</code> supports command history, <code>repl</code> does too. Any file in
+<code>~/</code> matching the name of the command you start <code>repl</code> with prefix
+with a dot and suffixed with "_history" will be used for completion.</p>
+
+<p>For instance, a file named <code>~/.redis-cli_history</code> containing a newline
+separated list of "get set info" will cause "get", "set", and "info"
+to be reachable using the up arrow as command history at the <code>repl
+redis-cli</code> prompt.</p>
+
+<p>The directory searched for history files can be configured using the
+<code>REPL_HISTORY_DIR</code> environment variable.</p>
+
 <h2>ENVIRONMENT</h2>
 
 <h3>REPL_PROMPT</h3>
@@ -177,6 +191,10 @@ the <code>REPL_COMPLETION_DIR</code> environment variable.</p>
 <h3>REPL_COMPLETION_DIR</h3>
 
 <p>directory in which completion files are kept</p>
+
+<h3>REPL_HISTORY_DIR</h3>
+
+<p>directory in which command history files are kept</p>
 
 <h2>BUGS</h2>
 
