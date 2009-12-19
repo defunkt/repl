@@ -130,6 +130,19 @@ the \fBrepl redis\-cli\fR prompt.
 The directory searched for completion files can be configured using
 the \fBREPL_COMPLETION_DIR\fR environment variable.
 .
+.SH "COMMAND HISTORY"
+Because \fBrlwrap\fR supports command history, \fBrepl\fR does too. Any file in \fB~/\fR matching the name of the command you start \fBrepl\fR with prefix
+with a dot and suffixed with "_history" will be used for completion.
+.
+.P
+For instance, a file named \fB~/.redis\-cli_history\fR containing a newline
+separated list of "get set info" will cause "get", "set", and "info"
+to be reachable using the up arrow as command history at the \fBrepl
+redis\-cli\fR prompt.
+.
+.P
+The directory searched for history files can be configured using the\fBREPL_HISTORY_DIR\fR environment variable.
+.
 .SH "ENVIRONMENT"
 .
 .SS "REPL_PROMPT"
@@ -137,6 +150,9 @@ the prompt to display before each line of input. defaults to >>
 .
 .SS "REPL_COMPLETION_DIR"
 directory in which completion files are kept
+.
+.SS "REPL_HISTORY_DIR"
+directory in which command history files are kept
 .
 .SH "BUGS"
 \fIhttp://github.com/defunkt/repl/issues\fR

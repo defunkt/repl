@@ -101,6 +101,20 @@ the `repl redis-cli` prompt.
 The directory searched for completion files can be configured using
 the `REPL_COMPLETION_DIR` environment variable.
 
+## COMMAND HISTORY
+
+Because `rlwrap` supports command history, `repl` does too. Any file in
+`~/` matching the name of the command you start `repl` with prefix
+with a dot and suffixed with "_history" will be used for completion.
+
+For instance, a file named `~/.redis-cli_history` containing a newline
+separated list of "get set info" will cause "get", "set", and "info"
+to be reachable using the up arrow as command history at the `repl
+redis-cli` prompt.
+
+The directory searched for history files can be configured using the
+`REPL_HISTORY_DIR` environment variable.
+
 ## ENVIRONMENT
 
 ### REPL_PROMPT
@@ -110,6 +124,10 @@ the prompt to display before each line of input. defaults to >>
 ### REPL_COMPLETION_DIR
 
 directory in which completion files are kept
+
+### REPL_HISTORY_DIR
+
+directory in which command history files are kept
 
 ## BUGS
 

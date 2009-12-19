@@ -49,9 +49,20 @@ if File.exists?(cdir = File.expand_path(completion_dir))
   end
 end
 
+history_dir = ENV['REPL_HISTORY_DIR'] || "~/"
+if File.exists?(hdir = File.expand_path(history_dir))
+  if script = ARGV.detect { |a| a !~ /^-/ }
+    hfile = "#{hdir}/.#{script}_history"
+  end
+end
+
 if !ENV['__REPL_WRAPPED'] && system("which rlwrap > /dev/null")
   ENV['__REPL_WRAPPED'] = '0'
-  rlargs = "-f #{cfile}" if cfile
+
+  rlargs = ""
+  rlargs << " -f #{cfile}" if cfile
+  rlargs << " -H #{hfile}" if hfile
+
   exec "rlwrap #{rlargs} #$0 #{ARGV.join(' ')}"
 end
 
@@ -65,6 +76,7 @@ show_help if command.empty?
 if debug
   print 'rlwrap ' if ENV['__REPL_WRAPPED']
   print "-f #{cfile} " if cfile
+  print "-H #{hfile} " if hfile
   puts command.inspect
 end
 
