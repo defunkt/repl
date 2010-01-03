@@ -22,6 +22,7 @@ Usage: repl [options] command ...
 
 Options:
   --help    Display this message
+  --stdin   Pipe input to command's STDIN
   --debug   Display each command executed
   --man     Display the man page
 
@@ -56,7 +57,7 @@ if File.exists?(hdir = File.expand_path(history_dir))
   end
 end
 
-if !ENV['__REPL_WRAPPED'] && system("which rlwrap > /dev/null")
+if !ENV['__REPL_WRAPPED'] && system("which rlwrap > /dev/null 2> /dev/null")
   ENV['__REPL_WRAPPED'] = '0'
 
   rlargs = ""
@@ -68,6 +69,10 @@ end
 
 if ARGV[0] == '--debug'
   debug = ARGV.delete('--debug')
+end
+
+if ARGV.include? '--stdin'
+  from_stdin = ARGV.delete('--stdin')
 end
 
 command = ARGV.join(' ')
@@ -89,7 +94,11 @@ loop do
     exit
   end
 
-  run = "#{command} %s" % [ line, nil ]
+  if from_stdin
+    run = "echo \"%s\" | #{command}" % [ line, nil ]
+  else
+    run = "#{command} %s" % [ line, nil ]
+  end
   puts "$ #{run}" if debug
   system run
   warn "Use Ctrl-D (i.e. EOF) to exit" if line =~ /^(exit|quit)$/
