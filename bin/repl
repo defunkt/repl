@@ -45,7 +45,7 @@ completion_dir = ENV['REPL_COMPLETION_DIR'] || "~/.repl"
 if File.exists?(cdir = File.expand_path(completion_dir))
   script = ARGV.detect { |a| a !~ /^-/ }
   if script
-    cfile = Dir[cdir + '/' + script].first
+    cfile = Dir[cdir + '/' + File.basename(script)].first
     cfile = nil if cfile && !File.exists?(cfile)
   end
 end
@@ -53,6 +53,7 @@ end
 history_dir = ENV['REPL_HISTORY_DIR'] || "~/"
 if File.exists?(hdir = File.expand_path(history_dir))
   if script = ARGV.detect { |a| a !~ /^-/ }
+    script = File.basename(script)
     hfile = "#{hdir}/.#{script}_history"
   end
 end
