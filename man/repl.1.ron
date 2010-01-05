@@ -82,6 +82,9 @@ Using `repl` with `git`:
   * `-h`, `--help`:
     Displays usage information.
 
+  * `--stdin`:
+    Pipe input to command's STDIN.
+
   * `--debug`:
     Displays debug information while running.
 
