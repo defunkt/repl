@@ -87,7 +87,7 @@ if debug
 end
 
 loop do
-  print ENV['REPL_PROMPT'] || '>> '
+  print ENV['REPL_PROMPT'] || "#{ARGV[0]}>> "
 
   begin
     line = $stdin.gets.chomp
