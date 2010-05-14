@@ -1,29 +1,12 @@
-module Repl
-  Version = '0.2.1'
-end
+$LOAD_PATH.unshift 'lib'
+require "repl/version"
 
 def version
-  Repl::Version
+  Repl::VERSION
 end
 
 def git(command)
   system("git #{command}")
-end
-
-
-begin
-  require 'jeweler'
-  Jeweler::Tasks.new do |gemspec|
-    gemspec.name = "repl"
-    gemspec.summary = gemspec.description = "repl tenderly wraps another program"
-    gemspec.homepage = "http://github.com/defunkt/repl"
-    gemspec.version = version
-    gemspec.authors = ["Chris Wanstrath"]
-    gemspec.email = "chris@ozmm.org"
-  end
-rescue LoadError
-  puts "Jeweler not available."
-  puts "Install it with: gem install jeweler"
 end
 
 desc "Build manual"
@@ -37,12 +20,13 @@ task :man => :build_man do
 end
 
 desc "Push a new version to Gemcutter"
-task :publish => [ :gemspec, :build ] do
+task :publish do
   git "tag v#{version}"
   git "push origin v#{version}"
   git "push origin master"
   git "push origin master:latest"
-  system "gem push pkg/repl-#{version}.gem"
+  sh "gem build repl.gemspec"
+  sh "gem push repl-#{version}.gem"
   git "clean -fd"
   exec "rake pages"
 end
