@@ -11,7 +11,7 @@ end
 
 desc "Build manual"
 task :build_man do
-  sh "ron -br5 --organization=DEFUNKT man/*.ron"
+  sh "ronn -br5 --organization=DEFUNKT man/*.ronn"
 end
 
 desc "Build and show manual"
