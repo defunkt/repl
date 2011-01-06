@@ -92,7 +92,7 @@ Install
 `repl` is easily installed as a standalone script:
 
     export REPL_BIN=~/bin/repl
-    curl -s http://github.com/defunkt/repl/raw/latest/bin/repl > $REPL_BIN
+    curl -s https://github.com/defunkt/repl/raw/latest/bin/repl > $REPL_BIN
     chmod 755 $REPL_BIN
 
 Change `$REPL_BIN` to your desired location and have at! (Just make
@@ -151,8 +151,8 @@ Meta
 ----
 
 * Code: `git clone git://github.com/defunkt/repl.git`
-* Home: <http://github.com/defunkt/repl>
-* Bugs: <http://github.com/defunkt/repl/issues>
+* Home: <https://github.com/defunkt/repl>
+* Bugs: <https://github.com/defunkt/repl/issues>
 * Gems: <http://gemcutter.org/gems/repl>
 
 
@@ -164,4 +164,4 @@ Chris Wanstrath :: chris@ozmm.org :: @defunkt
 
 [0]: http://utopia.knoware.nl/~hlub/rlwrap/
 [1]: http://help.github.com/forking/
-[2]: http://github.com/defunkt/repl/issues
+[2]: https://github.com/defunkt/repl/issues
