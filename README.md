@@ -92,7 +92,7 @@ Install
 `repl` is easily installed as a standalone script:
 
     export REPL_BIN=~/bin/repl
-    curl -s https://github.com/defunkt/repl/raw/latest/bin/repl > $REPL_BIN
+    curl -s https://raw.github.com/defunkt/repl/latest/bin/repl > $REPL_BIN
     chmod 755 $REPL_BIN
 
 Change `$REPL_BIN` to your desired location and have at! (Just make
