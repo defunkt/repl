@@ -27,7 +27,7 @@ Options:
   --man     Display the man page
 
 Bug reports, suggestions, updates:
-http://http://github.com/defunkt/repl/issues
+http://github.com/defunkt/repl/issues
 help
   exit
 end
